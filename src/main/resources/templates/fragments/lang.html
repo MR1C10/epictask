@@ -1,0 +1,12 @@
+<!-- language selector fragment -->
+<div th:fragment="langSelector">
+    <details>
+        <summary th:text="'Lang'"></summary>
+        <ul class="bg-base-100 rounded-t-none p-2">
+            <li th:each="loc : ${locales}">
+                <a th:href="${'?lang=' + (loc.country != '' ? loc.language + '_' + loc.country : loc.language)}"
+                   th:text="${#strings.substring(loc.displayName,0,0) == '' ? loc.displayName : loc.displayName}"></a>
+            </li>
+        </ul>
+    </details>
+</div>

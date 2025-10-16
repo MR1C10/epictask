@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dracula">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EpicTask</title>
+</head>
+
+<body>
+
+    <form class="mx-auto mt-8 w-lg" method="post" th:object="${task}">
+        <h2 class="text-2xl font-bold text-primary" th:text="#{task.new}"></h2>
+
+        <fieldset class="fieldset">
+            <legend class="fieldset-legend" th:text="#{task.title}"></legend>
+            <input name="title" type="text" class="input" />
+            <p class="label text-error" th:errors="*{title}"></p>
+        </fieldset>
+
+        <fieldset class="fieldset">
+            <legend class="fieldset-legend" th:text="#{task.description}"></legend>
+            <input name="description" type="text" class="input" />
+            <p class="label text-error" th:errors="*{description}"></p>
+        </fieldset>
+
+        <fieldset class="fieldset">
+            <legend class="fieldset-legend" th:text="#{task.score}"></legend>
+            <input name="score" type="number" class="input" />
+            <p class="label text-error" th:errors="*{score}"></p>
+        </fieldset>
+
+        <div>
+            <a href="/tasks" class="btn btn-neutral" th:text="#{cancel}"></a>
+            <button class="btn btn-primary" th:text="#{save}"></button>
+        </div>
+
+    </form>
+   
+</body>
+
+</html>
